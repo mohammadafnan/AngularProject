@@ -16,16 +16,17 @@ public formdata;
     this.formdata = new FormGroup({
       uname: new FormControl("", Validators.compose([
          Validators.required,
-         Validators.minLength(6)
+         Validators.minLength(10)
       ])),
       passwd: new FormControl("", this.passwordvalidation)
    });
   }
 
   passwordvalidation(formcontrol) {
-    if (formcontrol.value.length < 5) {
+    if (formcontrol.value.length > 8) {
        return {"passwd" : true};
     }
+  
  }
 
 

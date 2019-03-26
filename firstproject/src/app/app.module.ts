@@ -11,6 +11,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatInputModule} from '@angular/material';
 
 
+import {MatButtonModule} from '@angular/material/button'; 
+
+
 
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -46,6 +49,7 @@ const appRoutes: Routes = [
     MatTableModule,
     MatInputModule,
     HttpClientModule,
+    MatButtonModule,
     
   ],
   providers: [],
