@@ -2,3 +2,12 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.mat-form-field-underline {
+    background-color: rgb(255, 255, 255) !important;
+  }
+  
+  /* .mat-form-field-underline.mat-disabled {
+    background-color: transparent !important;
+  } */
