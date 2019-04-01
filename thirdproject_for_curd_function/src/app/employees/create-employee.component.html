@@ -1,0 +1,178 @@
+<!-- 
+<form class="form-horizontal" [formGroup]="employeeForm"  (ngSubmit)="onSubmit()">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Create Employee</h3>
+    </div>
+    <div class="panel-body">
+      <div class="form-group"  [ngClass]="{'has-error': ((employeeForm.get('FullName').touched ||
+      employeeForm.get('FullName').dirty) &&
+      employeeForm.get('FullName').errors)}">
+
+        <label class="col-sm-2 control-label" for="FullName">Full Name</label>
+        <div class="col-sm-8">
+          <input id="FullName" type="text" class="form-control" formControlName="FullName">
+          <span class="help-block"
+          *ngIf="((employeeForm.get('FullName').touched ||
+                   employeeForm.get('FullName').dirty) &&
+                   employeeForm.get('FullName').errors)">
+      <span *ngIf="employeeForm.get('FullName').errors.required">
+        Full Name is required
+      </span>
+      <span *ngIf="employeeForm.get('FullName').errors.minlength ||
+      employeeForm.get('FullName').errors.maxlength">
+Full Name must be greater than 2 characters and less than 20 characters
+</span>
+</span>
+        </div>
+      </div>
+
+      <div class="form-group" [ngClass]="{'has-error': ((employeeForm.get('FullName').touched ||
+      employeeForm.get('FullName').dirty) &&
+      employeeForm.get('FullName').errors)}">
+
+        <label class="col-sm-2 control-label" for="Email">Email</label>
+        <div class="col-sm-8">
+          <input id="Email" type="text" class="form-control" formControlName="Email">
+
+          <span class="help-block"
+          *ngIf="((employeeForm.get('FullName').touched ||
+                   employeeForm.get('FullName').dirty) &&
+                   employeeForm.get('FullName').errors)">
+      <span *ngIf="employeeForm.get('FullName').errors.required">
+          Email is required
+      </span>
+      <span *ngIf="employeeForm.get('FullName').errors.minlength ||
+      employeeForm.get('FullName').errors.maxlength">
+Full Name must be greater than 2 characters and less than 20 characters
+</span>
+</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-sm-2 control-label" for="Adress">Adress</label>
+          <div class="col-sm-8">
+            <input id="Adress" type="text" class="form-control" formControlName="Adress">
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="Phoneno">Phoneno</label>
+            <div class="col-sm-8">
+              <input id="Phoneno" type="text" class="form-control" formControlName="Phoneno">
+            </div>
+          </div>
+
+      <div formGroupName="skills">
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="SkillName">
+            Skill
+          </label>
+          <div class="col-sm-4">
+            <input type="text" class="form-control" id="SkillName"
+                placeholder="Name" formControlName="SkillName">
+          </div>
+          <div class="col-sm-4">
+            <input type="text" placeholder="Experience in Years"
+                class="form-control" formControlName="ExperienceInYears">
+          </div>
+        </div>
+      
+        <div class="form-group">
+          <label class="col-md-2 control-label">Proficiency</label>
+          <div class="col-md-8">
+            <label class="radio-inline">
+              <input id="Proficiency" type="radio" value="beginner"
+                     formControlName="Proficiency">Beginner
+            </label>
+            <label class="radio-inline">
+              <input id="Proficiency" type="radio" value="intermediate"
+                     formControlName="Proficiency">Intermediate
+            </label>
+            <label class="radio-inline">
+              <input id="Proficiency" type="radio" value="advanced"
+                     formControlName="Proficiency">Advanced
+            </label>
+          </div>
+        </div>
+      
+      </div>
+      
+
+    </div>
+    <div class="panel-footer">
+        <div class="btn-toolbar">
+      <button  [disabled]="!employeeForm.valid" class="btn btn-primary" type="submit">Save</button>
+      <button class="btn btn-primary" type="button"
+      (click)="onLoadDataClick()">Load Data</button>
+
+      <button class="btn btn-primary" type="button"
+      (click)="ReloadDataClick()">Refresh</button>
+    </div>
+
+    </div>
+  </div>
+</form>
+
+
+
+<table border="1">
+  <tr>
+    <th style="padding: 10px">FormGroup</th>
+    <th style="padding: 10px">FormControl (FullName)</th>
+    <th style="padding: 10px">FormControl (Email)</th>
+
+  </tr>
+  <tr>
+    <td style="padding: 10px">
+      touched : {{ employeeForm.touched }}
+      <br/> dirty : {{ employeeForm.dirty }}
+      <br/> valid : {{ employeeForm.valid }}
+      <br/> Form Values : {{employeeForm.value | json}}
+    </td>
+    <td style="padding: 10px">
+      touched : {{ employeeForm.get('FullName').touched }}
+      <br/> dirty : {{ employeeForm.get('FullName').dirty }}
+      <br/> valid : {{ employeeForm.get('FullName').valid }}
+      <br/> FullName Value : {{employeeForm.get('FullName').value}}
+    </td>
+    <td style="padding: 10px">
+      touched : {{ employeeForm.get('Email').touched }}
+      <br/> dirty : {{ employeeForm.get('Email').dirty }}
+      <br/> valid : {{ employeeForm.get('Email').valid }}
+      <br/> Email Value : {{employeeForm.get('Email').value}}
+    </td>
+  </tr>
+</table> -->
+
+
+<form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
+  <div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">Create Employee</h3>
+    </div>
+    <div class="panel-body">
+
+      <div class="form-group">
+        <label for="fullName">Full Name</label>
+        <input id="fullName" type="text" class="form-control"
+               name="fullName" [(ngModel)]="fullName">
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="text" class="form-control"
+               name="email" [(ngModel)]="email">
+      </div>
+
+    </div>
+    <div class="panel-footer">
+      <button class="btn btn-primary" type="submit">Save</button>
+    </div>
+  </div>
+</form>
+
+
+{{employeeForm.value | json}}
