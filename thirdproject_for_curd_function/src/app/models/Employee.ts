@@ -4,6 +4,7 @@ export class Employee {
     gender: string;
     email?: string;
     phoneNumber?: number;
+    address:string;
     contactPreference: string;
     dateOfBirth: Date;
     department: string;

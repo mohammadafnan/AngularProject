@@ -1,153 +1,3 @@
-<!-- 
-<form class="form-horizontal" [formGroup]="employeeForm"  (ngSubmit)="onSubmit()">
-  <div class="panel panel-primary">
-    <div class="panel-heading">
-      <h3 class="panel-title">Create Employee</h3>
-    </div>
-    <div class="panel-body">
-      <div class="form-group"  [ngClass]="{'has-error': ((employeeForm.get('FullName').touched ||
-      employeeForm.get('FullName').dirty) &&
-      employeeForm.get('FullName').errors)}">
-
-        <label class="col-sm-2 control-label" for="FullName">Full Name</label>
-        <div class="col-sm-8">
-          <input id="FullName" type="text" class="form-control" formControlName="FullName">
-          <span class="help-block"
-          *ngIf="((employeeForm.get('FullName').touched ||
-                   employeeForm.get('FullName').dirty) &&
-                   employeeForm.get('FullName').errors)">
-      <span *ngIf="employeeForm.get('FullName').errors.required">
-        Full Name is required
-      </span>
-      <span *ngIf="employeeForm.get('FullName').errors.minlength ||
-      employeeForm.get('FullName').errors.maxlength">
-Full Name must be greater than 2 characters and less than 20 characters
-</span>
-</span>
-        </div>
-      </div>
-
-      <div class="form-group" [ngClass]="{'has-error': ((employeeForm.get('FullName').touched ||
-      employeeForm.get('FullName').dirty) &&
-      employeeForm.get('FullName').errors)}">
-
-        <label class="col-sm-2 control-label" for="Email">Email</label>
-        <div class="col-sm-8">
-          <input id="Email" type="text" class="form-control" formControlName="Email">
-
-          <span class="help-block"
-          *ngIf="((employeeForm.get('FullName').touched ||
-                   employeeForm.get('FullName').dirty) &&
-                   employeeForm.get('FullName').errors)">
-      <span *ngIf="employeeForm.get('FullName').errors.required">
-          Email is required
-      </span>
-      <span *ngIf="employeeForm.get('FullName').errors.minlength ||
-      employeeForm.get('FullName').errors.maxlength">
-Full Name must be greater than 2 characters and less than 20 characters
-</span>
-</span>
-        </div>
-      </div>
-
-      <div class="form-group">
-          <label class="col-sm-2 control-label" for="Adress">Adress</label>
-          <div class="col-sm-8">
-            <input id="Adress" type="text" class="form-control" formControlName="Adress">
-          </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-sm-2 control-label" for="Phoneno">Phoneno</label>
-            <div class="col-sm-8">
-              <input id="Phoneno" type="text" class="form-control" formControlName="Phoneno">
-            </div>
-          </div>
-
-      <div formGroupName="skills">
-
-        <div class="form-group">
-          <label class="col-sm-2 control-label" for="SkillName">
-            Skill
-          </label>
-          <div class="col-sm-4">
-            <input type="text" class="form-control" id="SkillName"
-                placeholder="Name" formControlName="SkillName">
-          </div>
-          <div class="col-sm-4">
-            <input type="text" placeholder="Experience in Years"
-                class="form-control" formControlName="ExperienceInYears">
-          </div>
-        </div>
-      
-        <div class="form-group">
-          <label class="col-md-2 control-label">Proficiency</label>
-          <div class="col-md-8">
-            <label class="radio-inline">
-              <input id="Proficiency" type="radio" value="beginner"
-                     formControlName="Proficiency">Beginner
-            </label>
-            <label class="radio-inline">
-              <input id="Proficiency" type="radio" value="intermediate"
-                     formControlName="Proficiency">Intermediate
-            </label>
-            <label class="radio-inline">
-              <input id="Proficiency" type="radio" value="advanced"
-                     formControlName="Proficiency">Advanced
-            </label>
-          </div>
-        </div>
-      
-      </div>
-      
-
-    </div>
-    <div class="panel-footer">
-        <div class="btn-toolbar">
-      <button  [disabled]="!employeeForm.valid" class="btn btn-primary" type="submit">Save</button>
-      <button class="btn btn-primary" type="button"
-      (click)="onLoadDataClick()">Load Data</button>
-
-      <button class="btn btn-primary" type="button"
-      (click)="ReloadDataClick()">Refresh</button>
-    </div>
-
-    </div>
-  </div>
-</form>
-
-
-
-<table border="1">
-  <tr>
-    <th style="padding: 10px">FormGroup</th>
-    <th style="padding: 10px">FormControl (FullName)</th>
-    <th style="padding: 10px">FormControl (Email)</th>
-
-  </tr>
-  <tr>
-    <td style="padding: 10px">
-      touched : {{ employeeForm.touched }}
-      <br/> dirty : {{ employeeForm.dirty }}
-      <br/> valid : {{ employeeForm.valid }}
-      <br/> Form Values : {{employeeForm.value | json}}
-    </td>
-    <td style="padding: 10px">
-      touched : {{ employeeForm.get('FullName').touched }}
-      <br/> dirty : {{ employeeForm.get('FullName').dirty }}
-      <br/> valid : {{ employeeForm.get('FullName').valid }}
-      <br/> FullName Value : {{employeeForm.get('FullName').value}}
-    </td>
-    <td style="padding: 10px">
-      touched : {{ employeeForm.get('Email').touched }}
-      <br/> dirty : {{ employeeForm.get('Email').dirty }}
-      <br/> valid : {{ employeeForm.get('Email').valid }}
-      <br/> Email Value : {{employeeForm.get('Email').value}}
-    </td>
-  </tr>
-</table> -->
-
-
 <form #employeeForm="ngForm" (ngSubmit)="saveEmployee(employeeForm)">
   <div class="panel panel-primary">
     <div class="panel-heading">
@@ -155,23 +5,117 @@ Full Name must be greater than 2 characters and less than 20 characters
     </div>
     <div class="panel-body">
 
-      <div class="form-group">
-        <label for="fullName">Full Name</label>
-        <input id="fullName" type="text" class="form-control"
-               name="fullName" [(ngModel)]="fullName">
+
+      <div class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched"
+        [class.has-success]="fullNameControl.valid">
+        <label for="fullName" class="control-label">Full Name</label>
+        <input id="fullName" placeholder="Name" required type="text" class="form-control" name="fullName" [(ngModel)]="fullName"
+          #fullNameControl="ngModel">
+        <span class="co" *ngIf="fullNameControl.invalid">
+          Full Name is required
+        </span>
+      </div>
+
+      <div  class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched"
+      [class.has-success]="fullNameControl.valid">
+        <label for="email"  class="control-label">Email</label>
+        <input id="email" placeholder="xyz@gmail.com" required type="text" class="form-control" name="email" [(ngModel)]="email">
+        <span class="co" *ngIf="fullNameControl.invalid">
+          Email is required
+        </span>
+      </div>
+
+      <div class="form-group" class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched"
+      [class.has-success]="fullNameControl.valid">
+        <label for="phoneNumber">Phone Number</label>
+        <input id="phoneNumber"  placeholder="0000-0000000"required type="text" class="form-control" name="phoneNumber" [(ngModel)]="phoneNumber">
+        <span class="co" *ngIf="fullNameControl.invalid">
+          Phone number is required
+        </span>
+      </div>
+      <div class="form-group" class="form-group" [class.has-error]="fullNameControl.invalid && fullNameControl.touched"
+      [class.has-success]="fullNameControl.valid">
+        <label for="phoneNumber">Address</label>
+        <input id="phoneNumber" placeholder="Defence " required type="text" class="form-control" name="phoneNumber" [(ngModel)]="phoneNuadmber">
+        <span class="co" *ngIf="fullNameControl.invalid">
+          Phone number is required
+        </span>
       </div>
 
       <div class="form-group">
-        <label for="email">Email</label>
-        <input id="email" type="text" class="form-control"
-               name="email" [(ngModel)]="email">
+        <label>Contact Preference</label>
+        <div class="form-control">
+          <label class="radio-inline">
+            <input type="radio" name="contactPreference" value="email" [(ngModel)]="contactPreference">
+            Email
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="contactPreference" value="phone" [(ngModel)]="contactPreference">
+            Phone
+          </label>
+        </div>
+
+
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <div class="form-control">
+          <label class="radio-inline">
+            <input type="radio" name="gender" value="male" [(ngModel)]="gender" checked>
+            Male
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="gender" value="female" [(ngModel)]="gender">
+            Female
+          </label>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <div class="form-control">
+          <label class="checkbox-inline">
+            <input type="checkbox" name="isActive" [(ngModel)]="isActive">Is Active
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="department">Department</label>
+        <select id="department" name="department" [(ngModel)]="department" class="form-control">
+          <option *ngFor="let dept of departments" [value]="dept.id">
+            {{dept.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth</label>
+        <input id="dateOfBirth" name="dateOfBirth" [(ngModel)]="dateOfBirth" type="date" class="form-control" />
+      </div>
+
+      <div class="form-group">
+        <label for="photoPath">Photo Path</label>
+        <input id="photoPath" type="text" class="form-control" name="photoPath" [(ngModel)]="photoPath">
+      </div>
+
+      <div class="form-group">
+        <img [src]="photoPath" height="200" width="200" *ngIf="previewPhoto" />
+      </div>
+
+      <div class="form-group">
+        <button (click)="togglePhotoPreview()" class="btn btn-primary">
+          {{previewPhoto ? "Hide " : "Show " }} Preview
+        </button>
       </div>
 
     </div>
-    <div class="panel-footer">
-      <button class="btn btn-primary" type="submit">Save</button>
+    <div align="right"  class="panel-footer">
+      <button (click) = "onClick($event)" [disabled]="employeeForm.invalid" class="btn btn-outline-primary my-2 my-sm-0" type="submit" >Save</button>
     </div>
   </div>
+
 </form>
 
 
