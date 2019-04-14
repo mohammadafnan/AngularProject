@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
+import { MyserviceService } from './Services/myservice.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,22 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'secondproject';
+
+  constructor(@Inject(MyserviceService) myservice) {
+  
+    console.log(myservice);
+    console.log("This is @Component decorator also called (component decorator) with sign of (@) from app.component.ts")
+  }
+
+  @HostListener('click',['$event'])
+  onhostclick(event:Event){
+    alert("This is @hostlistner");
+  }
+  numberOfClicks = 0;
+
+  @HostListener('click', ['$event'])
+  onClick(btn) {
+    console.log('button', btn, 'number of clicks:', this.numberOfClicks++);
+}
+
 }

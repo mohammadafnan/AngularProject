@@ -8,6 +8,7 @@ import { ListEmployeesComponent } from './employees/list-employees.component';
 import { CreateEmployeeComponent } from './employees/create-employee.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
+import { MyserviceService } from './Services/myservice.service';
 // import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
@@ -32,7 +33,11 @@ const appRoutes: Routes = [
     FormsModule,
     // BsDatepickerModule.forRoot(),
   ],
-  providers: [],
+  providers: [MyserviceService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    console.log("This is @NgModule decorator also called (class decorator) with sign of (@) from app.module")
+  }
+ }
