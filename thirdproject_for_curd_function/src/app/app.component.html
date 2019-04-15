@@ -1,5 +1,5 @@
 <div class="container">
-    <nav  class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="nav navbar-nav">
             <li>
                 <a routerLink="list">List</a>
@@ -12,3 +12,6 @@
     <router-outlet></router-outlet>
 </div>
 
+<div>
+    <app-list-employees [myinput]="inputvar"></app-list-employees>
+</div>

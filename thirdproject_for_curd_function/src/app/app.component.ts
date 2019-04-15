@@ -8,7 +8,7 @@ import { MyserviceService } from './Services/myservice.service';
 })
 export class AppComponent {
   title = 'secondproject';
-
+  inputvar = "  I am your parent component(App component) of child component(list component) ";
   constructor(@Inject(MyserviceService) myservice) {
   
     console.log(myservice);
