@@ -52,7 +52,7 @@ export class ListEmployeesComponent implements OnInit {
 
   ngOnInit() {
 
-    console.log(this.myinput);
+    // console.log(this.myinput);
 
   }
 
